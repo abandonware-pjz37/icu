@@ -1,0 +1,103 @@
+# This file generated automatically by:
+#   generate_sugar_files.py
+# see wiki for more info:
+#   https://github.com/ruslo/sugar/wiki/Collecting-sources
+
+if(DEFINED ICU_SOURCE_COMMON_UNICODE_SUGAR_CMAKE_)
+  return()
+else()
+  set(ICU_SOURCE_COMMON_UNICODE_SUGAR_CMAKE_ 1)
+endif()
+
+include(sugar_files)
+
+sugar_files(
+    ICU_UC_SOURCES
+    brkiter.h
+    bytestream.h
+    caniter.h
+    chariter.h
+    dbbi.h
+    docmain.h
+    dtintrv.h
+    errorcode.h
+    icudataver.h
+    icuplug.h
+    idna.h
+    localpointer.h
+    locid.h
+    normalizer2.h
+    normlzr.h
+    pandroid.h
+    parseerr.h
+    parsepos.h
+    pfreebsd.h
+    platform.h.in
+    plinux.h
+    pmac.h
+    popenbsd.h
+    ppalmos.h
+    ptypes.h
+    putil.h
+    pwin32.h
+    rbbi.h
+    rep.h
+    resbund.h
+    schriter.h
+    std_string.h
+    strenum.h
+    stringpiece.h
+    symtable.h
+    ubidi.h
+    ubrk.h
+    ucasemap.h
+    ucat.h
+    uchar.h
+    uchriter.h
+    uclean.h
+    ucnv.h
+    ucnv_cb.h
+    ucnv_err.h
+    ucnvsel.h
+    uconfig.h
+    udata.h
+    udeprctd.h
+    udraft.h
+    uenum.h
+    uidna.h
+    uintrnal.h
+    uiter.h
+    uloc.h
+    umachine.h
+    umisc.h
+    unifilt.h
+    unifunct.h
+    unimatch.h
+    uniset.h
+    unistr.h
+    unorm.h
+    unorm2.h
+    uobject.h
+    uobslete.h
+    urename.h
+    urep.h
+    ures.h
+    uscript.h
+    uset.h
+    usetiter.h
+    ushape.h
+    usprep.h
+    ustring.h
+    usystem.h
+    utext.h
+    utf.h
+    utf16.h
+    utf32.h
+    utf8.h
+    utf_old.h
+    utrace.h
+    utypeinfo.h
+    utypes.h
+    uvernum.h
+    uversion.h
+)
