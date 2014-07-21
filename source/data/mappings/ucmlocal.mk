@@ -24,8 +24,7 @@
 #   - TIS-620 and ISO-8859-11 are treated as synonyms of Windows-874
 #     although they're not the same.
 # * Mac encodings : MacRoman, MacCyrillic
-# * Cyrillic : KOI8-R, KOI8-U
-# * WebKit wants PC-Arabic (DOS 720 = IBM-864)
+# * Cyrillic : KOI8-R, KOI8-U, IBM-866
 # * Three 'fake' tables to prevent Webkit from falling back to the default
 #   encoding when coming across ISO-2022-CN-(Ext).
 #
@@ -47,15 +46,13 @@ ibm-5349_P100-1998.ucm ibm-5350_P100-1998.ucm ibm-9447_P100-2002.ucm\
 ibm-9448_X100-2005.ucm ibm-9449_P100-2002.ucm ibm-5354_P100-1998.ucm\
 windows-936-2000.ucm gb18030.ucm\
 windows-950-2000.ucm ibm-1375_P100-2007.ucm\
-ibm-943_P15A-2003.ucm google-euc_jp_mod.ucm\
+ibm-943_P15A-2003.ucm euc-jp-html5.ucm\
 windows-949-2000.ucm\
 windows-874-2000.ucm ibm-874_P100-1995.ucm\
 macos-0_2-10.2.ucm macos-7_3-10.2.ucm\
-ibm-878_P100-1996.ucm ibm-1168_P100-2002.ucm\
-ibm-864_X110-1999.ucm\
-noop-cns-11643.ucm\
-noop-gb2312_gl.ucm\
-noop-iso-ir-165.ucm
+ibm-878_P100-1996.ucm ibm-1168_P100-2002.ucm ibm-866_html5-2012.ucm\
+noop-cns-11643.ucm noop-gb2312_gl.ucm noop-iso-ir-165.ucm
+
 
 # Do not build EBCDIC converters.
 # ibm-37 and ibm-1047 are hardcoded in Makefile.in and
