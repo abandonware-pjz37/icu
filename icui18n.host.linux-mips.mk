@@ -24,12 +24,11 @@ LOCAL_GENERATED_SOURCES :=
 GYP_COPIED_SOURCE_ORIGIN_DIRS :=
 
 LOCAL_SRC_FILES := \
+	third_party/icu/source/i18n/alphaindex.cpp \
 	third_party/icu/source/i18n/anytrans.cpp \
 	third_party/icu/source/i18n/astro.cpp \
 	third_party/icu/source/i18n/basictz.cpp \
-	third_party/icu/source/i18n/bms.cpp \
-	third_party/icu/source/i18n/bmsearch.cpp \
-	third_party/icu/source/i18n/bocsu.c \
+	third_party/icu/source/i18n/bocsu.cpp \
 	third_party/icu/source/i18n/brktrans.cpp \
 	third_party/icu/source/i18n/buddhcal.cpp \
 	third_party/icu/source/i18n/calendar.cpp \
@@ -39,7 +38,7 @@ LOCAL_SRC_FILES := \
 	third_party/icu/source/i18n/choicfmt.cpp \
 	third_party/icu/source/i18n/coleitr.cpp \
 	third_party/icu/source/i18n/coll.cpp \
-	third_party/icu/source/i18n/colldata.cpp \
+	third_party/icu/source/i18n/compactdecimalformat.cpp \
 	third_party/icu/source/i18n/coptccal.cpp \
 	third_party/icu/source/i18n/cpdtrans.cpp \
 	third_party/icu/source/i18n/csdetect.cpp \
@@ -54,11 +53,13 @@ LOCAL_SRC_FILES := \
 	third_party/icu/source/i18n/currfmt.cpp \
 	third_party/icu/source/i18n/currpinf.cpp \
 	third_party/icu/source/i18n/currunit.cpp \
+	third_party/icu/source/i18n/dangical.cpp \
 	third_party/icu/source/i18n/datefmt.cpp \
 	third_party/icu/source/i18n/dcfmtsym.cpp \
 	third_party/icu/source/i18n/decContext.c \
-	third_party/icu/source/i18n/decNumber.c \
+	third_party/icu/source/i18n/decfmtst.cpp \
 	third_party/icu/source/i18n/decimfmt.cpp \
+	third_party/icu/source/i18n/decNumber.c \
 	third_party/icu/source/i18n/digitlst.cpp \
 	third_party/icu/source/i18n/dtfmtsym.cpp \
 	third_party/icu/source/i18n/dtitvfmt.cpp \
@@ -67,15 +68,17 @@ LOCAL_SRC_FILES := \
 	third_party/icu/source/i18n/dtrule.cpp \
 	third_party/icu/source/i18n/esctrn.cpp \
 	third_party/icu/source/i18n/ethpccal.cpp \
-	third_party/icu/source/i18n/fmtable.cpp \
 	third_party/icu/source/i18n/fmtable_cnv.cpp \
+	third_party/icu/source/i18n/fmtable.cpp \
 	third_party/icu/source/i18n/format.cpp \
 	third_party/icu/source/i18n/fphdlimp.cpp \
 	third_party/icu/source/i18n/fpositer.cpp \
 	third_party/icu/source/i18n/funcrepl.cpp \
+	third_party/icu/source/i18n/gender.cpp \
 	third_party/icu/source/i18n/gregocal.cpp \
 	third_party/icu/source/i18n/gregoimp.cpp \
 	third_party/icu/source/i18n/hebrwcal.cpp \
+	third_party/icu/source/i18n/identifier_info.cpp \
 	third_party/icu/source/i18n/indiancal.cpp \
 	third_party/icu/source/i18n/inputext.cpp \
 	third_party/icu/source/i18n/islamcal.cpp \
@@ -105,16 +108,20 @@ LOCAL_SRC_FILES := \
 	third_party/icu/source/i18n/rbt_set.cpp \
 	third_party/icu/source/i18n/rbtz.cpp \
 	third_party/icu/source/i18n/regexcmp.cpp \
+	third_party/icu/source/i18n/regeximp.cpp \
 	third_party/icu/source/i18n/regexst.cpp \
 	third_party/icu/source/i18n/regextxt.cpp \
+	third_party/icu/source/i18n/region.cpp \
 	third_party/icu/source/i18n/reldtfmt.cpp \
 	third_party/icu/source/i18n/rematch.cpp \
 	third_party/icu/source/i18n/remtrans.cpp \
 	third_party/icu/source/i18n/repattrn.cpp \
+	third_party/icu/source/i18n/scriptset.cpp \
 	third_party/icu/source/i18n/search.cpp \
 	third_party/icu/source/i18n/selfmt.cpp \
 	third_party/icu/source/i18n/simpletz.cpp \
 	third_party/icu/source/i18n/smpdtfmt.cpp \
+	third_party/icu/source/i18n/smpdtfst.cpp \
 	third_party/icu/source/i18n/sortkey.cpp \
 	third_party/icu/source/i18n/strmatch.cpp \
 	third_party/icu/source/i18n/strrepl.cpp \
@@ -131,34 +138,42 @@ LOCAL_SRC_FILES := \
 	third_party/icu/source/i18n/translit.cpp \
 	third_party/icu/source/i18n/transreg.cpp \
 	third_party/icu/source/i18n/tridpars.cpp \
+	third_party/icu/source/i18n/tzfmt.cpp \
+	third_party/icu/source/i18n/tzgnames.cpp \
+	third_party/icu/source/i18n/tznames.cpp \
+	third_party/icu/source/i18n/tznames_impl.cpp \
 	third_party/icu/source/i18n/tzrule.cpp \
 	third_party/icu/source/i18n/tztrans.cpp \
 	third_party/icu/source/i18n/ucal.cpp \
 	third_party/icu/source/i18n/ucln_in.c \
-	third_party/icu/source/i18n/ucol.cpp \
 	third_party/icu/source/i18n/ucol_bld.cpp \
 	third_party/icu/source/i18n/ucol_cnt.cpp \
+	third_party/icu/source/i18n/ucol.cpp \
+	third_party/icu/source/i18n/ucoleitr.cpp \
 	third_party/icu/source/i18n/ucol_elm.cpp \
 	third_party/icu/source/i18n/ucol_res.cpp \
 	third_party/icu/source/i18n/ucol_sit.cpp \
 	third_party/icu/source/i18n/ucol_tok.cpp \
 	third_party/icu/source/i18n/ucol_wgt.cpp \
-	third_party/icu/source/i18n/ucoleitr.cpp \
 	third_party/icu/source/i18n/ucsdet.cpp \
 	third_party/icu/source/i18n/ucurr.cpp \
 	third_party/icu/source/i18n/udat.cpp \
+	third_party/icu/source/i18n/udateintervalformat.cpp \
 	third_party/icu/source/i18n/udatpg.cpp \
 	third_party/icu/source/i18n/ulocdata.c \
 	third_party/icu/source/i18n/umsg.cpp \
 	third_party/icu/source/i18n/unesctrn.cpp \
 	third_party/icu/source/i18n/uni2name.cpp \
 	third_party/icu/source/i18n/unum.cpp \
-	third_party/icu/source/i18n/uregex.cpp \
+	third_party/icu/source/i18n/unumsys.cpp \
+	third_party/icu/source/i18n/upluralrules.cpp \
 	third_party/icu/source/i18n/uregexc.cpp \
+	third_party/icu/source/i18n/uregex.cpp \
+	third_party/icu/source/i18n/uregion.cpp \
 	third_party/icu/source/i18n/usearch.cpp \
-	third_party/icu/source/i18n/uspoof.cpp \
 	third_party/icu/source/i18n/uspoof_build.cpp \
 	third_party/icu/source/i18n/uspoof_conf.cpp \
+	third_party/icu/source/i18n/uspoof.cpp \
 	third_party/icu/source/i18n/uspoof_impl.cpp \
 	third_party/icu/source/i18n/uspoof_wsconf.cpp \
 	third_party/icu/source/i18n/utmscale.c \
@@ -170,7 +185,6 @@ LOCAL_SRC_FILES := \
 	third_party/icu/source/i18n/wintzimpl.cpp \
 	third_party/icu/source/i18n/zonemeta.cpp \
 	third_party/icu/source/i18n/zrule.cpp \
-	third_party/icu/source/i18n/zstrfmt.cpp \
 	third_party/icu/source/i18n/ztrans.cpp
 
 
@@ -201,6 +215,7 @@ MY_CFLAGS_Debug := \
 
 MY_DEFS_Debug := \
 	'-DU_USING_ICU_NAMESPACE=0' \
+	'-DHAVE_DLOPEN=0' \
 	'-DV8_DEPRECATION_WARNINGS' \
 	'-DBLINK_SCALE_FILTERS_AT_RECORD_TIME' \
 	'-D_FILE_OFFSET_BITS=64' \
@@ -217,7 +232,6 @@ MY_DEFS_Debug := \
 	'-DSYSTEM_NATIVELY_SIGNALS_MEMORY_PRESSURE' \
 	'-DENABLE_EGLIMAGE=1' \
 	'-DCLD_VERSION=1' \
-	'-DCLD_DATA_FROM_STATIC' \
 	'-DENABLE_PRINTING=1' \
 	'-DENABLE_MANAGED_USERS=1' \
 	'-DDATA_REDUCTION_FALLBACK_HOST="http://compress.googlezip.net:80/"' \
@@ -227,6 +241,7 @@ MY_DEFS_Debug := \
 	'-DDATA_REDUCTION_PROXY_WARMUP_URL="http://www.gstatic.com/generate_204"' \
 	'-DVIDEO_HOLE=1' \
 	'-DU_I18N_IMPLEMENTATION' \
+	'-DU_ENABLE_DYLOAD=0' \
 	'-DUSE_OPENSSL=1' \
 	'-DUSE_OPENSSL_CERTS=1' \
 	'-DDYNAMIC_ANNOTATIONS_ENABLED=1' \
@@ -277,6 +292,7 @@ MY_CFLAGS_Release := \
 
 MY_DEFS_Release := \
 	'-DU_USING_ICU_NAMESPACE=0' \
+	'-DHAVE_DLOPEN=0' \
 	'-DV8_DEPRECATION_WARNINGS' \
 	'-DBLINK_SCALE_FILTERS_AT_RECORD_TIME' \
 	'-D_FILE_OFFSET_BITS=64' \
@@ -293,7 +309,6 @@ MY_DEFS_Release := \
 	'-DSYSTEM_NATIVELY_SIGNALS_MEMORY_PRESSURE' \
 	'-DENABLE_EGLIMAGE=1' \
 	'-DCLD_VERSION=1' \
-	'-DCLD_DATA_FROM_STATIC' \
 	'-DENABLE_PRINTING=1' \
 	'-DENABLE_MANAGED_USERS=1' \
 	'-DDATA_REDUCTION_FALLBACK_HOST="http://compress.googlezip.net:80/"' \
@@ -303,6 +318,7 @@ MY_DEFS_Release := \
 	'-DDATA_REDUCTION_PROXY_WARMUP_URL="http://www.gstatic.com/generate_204"' \
 	'-DVIDEO_HOLE=1' \
 	'-DU_I18N_IMPLEMENTATION' \
+	'-DU_ENABLE_DYLOAD=0' \
 	'-DUSE_OPENSSL=1' \
 	'-DUSE_OPENSSL_CERTS=1' \
 	'-DNDEBUG' \
