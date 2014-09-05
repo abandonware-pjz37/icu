@@ -2,192 +2,453 @@
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_CLASS := GYP
+LOCAL_MODULE_CLASS := STATIC_LIBRARIES
 LOCAL_MODULE := third_party_icu_icui18n_gyp
-LOCAL_MODULE_STEM := icui18n
-LOCAL_MODULE_SUFFIX := .stamp
+LOCAL_MODULE_SUFFIX := .a
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_TARGET_ARCH := $(TARGET_$(GYP_VAR_PREFIX)ARCH)
 gyp_intermediate_dir := $(call local-intermediates-dir,,$(GYP_VAR_PREFIX))
 gyp_shared_intermediate_dir := $(call intermediates-dir-for,GYP,shared,,,$(GYP_VAR_PREFIX))
 
 # Make sure our deps are built first.
-GYP_TARGET_DEPENDENCIES := \
-	$(call intermediates-dir-for,GYP,third_party_icu_system_icu_gyp,,,$(GYP_VAR_PREFIX))/system_icu.stamp
+GYP_TARGET_DEPENDENCIES :=
 
-### Rules for action "generate_icui18n_shim_headers":
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h: gyp_local_path := $(LOCAL_PATH)
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h: gyp_var_prefix := $(GYP_VAR_PREFIX)
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h: gyp_intermediate_dir := $(abspath $(gyp_intermediate_dir))
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h: gyp_shared_intermediate_dir := $(abspath $(gyp_shared_intermediate_dir))
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h: export PATH := $(subst $(ANDROID_BUILD_PATHS),,$(PATH))
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h: $(LOCAL_PATH)/tools/generate_shim_headers/generate_shim_headers.py $(GYP_TARGET_DEPENDENCIES)
-	@echo "Gyp action: Generating icui18n shim headers ($@)"
-	$(hide)cd $(gyp_local_path)/third_party/icu; mkdir -p $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode; python ../../tools/generate_shim_headers/generate_shim_headers.py --headers-root source/i18n --output-directory "$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target" unicode/alphaindex.h unicode/basictz.h unicode/calendar.h unicode/choicfmt.h unicode/coleitr.h unicode/coll.h unicode/compactdecimalformat.h unicode/curramt.h unicode/currpinf.h unicode/currunit.h unicode/datefmt.h unicode/dcfmtsym.h unicode/decimfmt.h unicode/dtfmtsym.h unicode/dtitvfmt.h unicode/dtitvinf.h unicode/dtptngen.h unicode/dtrule.h unicode/fieldpos.h unicode/fmtable.h unicode/format.h unicode/fpositer.h unicode/gender.h unicode/gregocal.h unicode/locdspnm.h unicode/measfmt.h unicode/measunit.h unicode/measure.h unicode/msgfmt.h unicode/numfmt.h unicode/numsys.h unicode/plurfmt.h unicode/plurrule.h unicode/rbnf.h unicode/rbtz.h unicode/regex.h unicode/region.h unicode/search.h unicode/selfmt.h unicode/simpletz.h unicode/smpdtfmt.h unicode/sortkey.h unicode/stsearch.h unicode/tblcoll.h unicode/timezone.h unicode/tmunit.h unicode/tmutamt.h unicode/tmutfmt.h unicode/translit.h unicode/tzfmt.h unicode/tznames.h unicode/tzrule.h unicode/tztrans.h unicode/ucal.h unicode/ucoleitr.h unicode/ucol.h unicode/ucsdet.h unicode/ucurr.h unicode/udateintervalformat.h unicode/udat.h unicode/udatpg.h unicode/udisplaycontext.h unicode/uformattable.h unicode/ugender.h unicode/uldnames.h unicode/ulocdata.h unicode/umsg.h unicode/unirepl.h unicode/unum.h unicode/unumsys.h unicode/upluralrules.h unicode/uregex.h unicode/uregion.h unicode/usearch.h unicode/uspoof.h unicode/utmscale.h unicode/utrans.h unicode/vtzone.h --generate
-
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/basictz.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/calendar.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/choicfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/coleitr.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/coll.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/compactdecimalformat.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/curramt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/currpinf.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/currunit.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/datefmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dcfmtsym.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/decimfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtfmtsym.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtitvfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtitvinf.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtptngen.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtrule.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/fieldpos.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/fmtable.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/format.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/fpositer.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/gender.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/gregocal.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/locdspnm.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/measfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/measunit.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/measure.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/msgfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/numfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/numsys.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/plurfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/plurrule.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/rbnf.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/rbtz.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/regex.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/region.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/search.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/selfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/simpletz.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/smpdtfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/sortkey.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/stsearch.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tblcoll.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/timezone.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tmunit.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tmutamt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tmutfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/translit.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tzfmt.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tznames.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tzrule.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tztrans.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucal.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucoleitr.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucol.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucsdet.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucurr.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/udateintervalformat.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/udat.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/udatpg.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/udisplaycontext.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uformattable.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ugender.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uldnames.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ulocdata.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/umsg.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/unirepl.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/unum.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/unumsys.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/upluralrules.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uregex.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uregion.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/usearch.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uspoof.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/utmscale.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/utrans.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/vtzone.h: $(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h ;
-
-
-GYP_GENERATED_OUTPUTS := \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/alphaindex.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/basictz.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/calendar.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/choicfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/coleitr.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/coll.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/compactdecimalformat.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/curramt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/currpinf.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/currunit.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/datefmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dcfmtsym.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/decimfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtfmtsym.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtitvfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtitvinf.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtptngen.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/dtrule.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/fieldpos.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/fmtable.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/format.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/fpositer.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/gender.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/gregocal.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/locdspnm.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/measfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/measunit.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/measure.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/msgfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/numfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/numsys.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/plurfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/plurrule.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/rbnf.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/rbtz.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/regex.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/region.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/search.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/selfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/simpletz.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/smpdtfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/sortkey.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/stsearch.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tblcoll.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/timezone.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tmunit.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tmutamt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tmutfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/translit.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tzfmt.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tznames.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tzrule.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/tztrans.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucal.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucoleitr.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucol.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucsdet.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ucurr.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/udateintervalformat.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/udat.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/udatpg.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/udisplaycontext.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uformattable.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ugender.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uldnames.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/ulocdata.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/umsg.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/unirepl.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/unum.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/unumsys.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/upluralrules.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uregex.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uregion.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/usearch.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/uspoof.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/utmscale.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/utrans.h \
-	$(gyp_shared_intermediate_dir)/shim_headers/icui18n/target/third_party/icu/source/i18n/unicode/vtzone.h
+GYP_GENERATED_OUTPUTS :=
 
 # Make sure our deps and generated files are built first.
 LOCAL_ADDITIONAL_DEPENDENCIES := $(GYP_TARGET_DEPENDENCIES) $(GYP_GENERATED_OUTPUTS)
 
+LOCAL_GENERATED_SOURCES :=
+
+GYP_COPIED_SOURCE_ORIGIN_DIRS :=
+
+LOCAL_SRC_FILES := \
+	third_party/icu/source/i18n/alphaindex.cpp \
+	third_party/icu/source/i18n/anytrans.cpp \
+	third_party/icu/source/i18n/astro.cpp \
+	third_party/icu/source/i18n/basictz.cpp \
+	third_party/icu/source/i18n/bocsu.cpp \
+	third_party/icu/source/i18n/brktrans.cpp \
+	third_party/icu/source/i18n/buddhcal.cpp \
+	third_party/icu/source/i18n/calendar.cpp \
+	third_party/icu/source/i18n/casetrn.cpp \
+	third_party/icu/source/i18n/cecal.cpp \
+	third_party/icu/source/i18n/chnsecal.cpp \
+	third_party/icu/source/i18n/choicfmt.cpp \
+	third_party/icu/source/i18n/coleitr.cpp \
+	third_party/icu/source/i18n/coll.cpp \
+	third_party/icu/source/i18n/compactdecimalformat.cpp \
+	third_party/icu/source/i18n/coptccal.cpp \
+	third_party/icu/source/i18n/cpdtrans.cpp \
+	third_party/icu/source/i18n/csdetect.cpp \
+	third_party/icu/source/i18n/csmatch.cpp \
+	third_party/icu/source/i18n/csr2022.cpp \
+	third_party/icu/source/i18n/csrecog.cpp \
+	third_party/icu/source/i18n/csrmbcs.cpp \
+	third_party/icu/source/i18n/csrsbcs.cpp \
+	third_party/icu/source/i18n/csrucode.cpp \
+	third_party/icu/source/i18n/csrutf8.cpp \
+	third_party/icu/source/i18n/curramt.cpp \
+	third_party/icu/source/i18n/currfmt.cpp \
+	third_party/icu/source/i18n/currpinf.cpp \
+	third_party/icu/source/i18n/currunit.cpp \
+	third_party/icu/source/i18n/dangical.cpp \
+	third_party/icu/source/i18n/datefmt.cpp \
+	third_party/icu/source/i18n/dcfmtsym.cpp \
+	third_party/icu/source/i18n/decContext.c \
+	third_party/icu/source/i18n/decfmtst.cpp \
+	third_party/icu/source/i18n/decimfmt.cpp \
+	third_party/icu/source/i18n/decNumber.c \
+	third_party/icu/source/i18n/digitlst.cpp \
+	third_party/icu/source/i18n/dtfmtsym.cpp \
+	third_party/icu/source/i18n/dtitvfmt.cpp \
+	third_party/icu/source/i18n/dtitvinf.cpp \
+	third_party/icu/source/i18n/dtptngen.cpp \
+	third_party/icu/source/i18n/dtrule.cpp \
+	third_party/icu/source/i18n/esctrn.cpp \
+	third_party/icu/source/i18n/ethpccal.cpp \
+	third_party/icu/source/i18n/fmtable_cnv.cpp \
+	third_party/icu/source/i18n/fmtable.cpp \
+	third_party/icu/source/i18n/format.cpp \
+	third_party/icu/source/i18n/fphdlimp.cpp \
+	third_party/icu/source/i18n/fpositer.cpp \
+	third_party/icu/source/i18n/funcrepl.cpp \
+	third_party/icu/source/i18n/gender.cpp \
+	third_party/icu/source/i18n/gregocal.cpp \
+	third_party/icu/source/i18n/gregoimp.cpp \
+	third_party/icu/source/i18n/hebrwcal.cpp \
+	third_party/icu/source/i18n/identifier_info.cpp \
+	third_party/icu/source/i18n/indiancal.cpp \
+	third_party/icu/source/i18n/inputext.cpp \
+	third_party/icu/source/i18n/islamcal.cpp \
+	third_party/icu/source/i18n/japancal.cpp \
+	third_party/icu/source/i18n/locdspnm.cpp \
+	third_party/icu/source/i18n/measfmt.cpp \
+	third_party/icu/source/i18n/measure.cpp \
+	third_party/icu/source/i18n/msgfmt.cpp \
+	third_party/icu/source/i18n/name2uni.cpp \
+	third_party/icu/source/i18n/nfrs.cpp \
+	third_party/icu/source/i18n/nfrule.cpp \
+	third_party/icu/source/i18n/nfsubs.cpp \
+	third_party/icu/source/i18n/nortrans.cpp \
+	third_party/icu/source/i18n/nultrans.cpp \
+	third_party/icu/source/i18n/numfmt.cpp \
+	third_party/icu/source/i18n/numsys.cpp \
+	third_party/icu/source/i18n/olsontz.cpp \
+	third_party/icu/source/i18n/persncal.cpp \
+	third_party/icu/source/i18n/plurfmt.cpp \
+	third_party/icu/source/i18n/plurrule.cpp \
+	third_party/icu/source/i18n/quant.cpp \
+	third_party/icu/source/i18n/rbnf.cpp \
+	third_party/icu/source/i18n/rbt.cpp \
+	third_party/icu/source/i18n/rbt_data.cpp \
+	third_party/icu/source/i18n/rbt_pars.cpp \
+	third_party/icu/source/i18n/rbt_rule.cpp \
+	third_party/icu/source/i18n/rbt_set.cpp \
+	third_party/icu/source/i18n/rbtz.cpp \
+	third_party/icu/source/i18n/regexcmp.cpp \
+	third_party/icu/source/i18n/regeximp.cpp \
+	third_party/icu/source/i18n/regexst.cpp \
+	third_party/icu/source/i18n/regextxt.cpp \
+	third_party/icu/source/i18n/region.cpp \
+	third_party/icu/source/i18n/reldtfmt.cpp \
+	third_party/icu/source/i18n/rematch.cpp \
+	third_party/icu/source/i18n/remtrans.cpp \
+	third_party/icu/source/i18n/repattrn.cpp \
+	third_party/icu/source/i18n/scriptset.cpp \
+	third_party/icu/source/i18n/search.cpp \
+	third_party/icu/source/i18n/selfmt.cpp \
+	third_party/icu/source/i18n/simpletz.cpp \
+	third_party/icu/source/i18n/smpdtfmt.cpp \
+	third_party/icu/source/i18n/smpdtfst.cpp \
+	third_party/icu/source/i18n/sortkey.cpp \
+	third_party/icu/source/i18n/strmatch.cpp \
+	third_party/icu/source/i18n/strrepl.cpp \
+	third_party/icu/source/i18n/stsearch.cpp \
+	third_party/icu/source/i18n/taiwncal.cpp \
+	third_party/icu/source/i18n/tblcoll.cpp \
+	third_party/icu/source/i18n/timezone.cpp \
+	third_party/icu/source/i18n/titletrn.cpp \
+	third_party/icu/source/i18n/tmunit.cpp \
+	third_party/icu/source/i18n/tmutamt.cpp \
+	third_party/icu/source/i18n/tmutfmt.cpp \
+	third_party/icu/source/i18n/tolowtrn.cpp \
+	third_party/icu/source/i18n/toupptrn.cpp \
+	third_party/icu/source/i18n/translit.cpp \
+	third_party/icu/source/i18n/transreg.cpp \
+	third_party/icu/source/i18n/tridpars.cpp \
+	third_party/icu/source/i18n/tzfmt.cpp \
+	third_party/icu/source/i18n/tzgnames.cpp \
+	third_party/icu/source/i18n/tznames.cpp \
+	third_party/icu/source/i18n/tznames_impl.cpp \
+	third_party/icu/source/i18n/tzrule.cpp \
+	third_party/icu/source/i18n/tztrans.cpp \
+	third_party/icu/source/i18n/ucal.cpp \
+	third_party/icu/source/i18n/ucln_in.c \
+	third_party/icu/source/i18n/ucol_bld.cpp \
+	third_party/icu/source/i18n/ucol_cnt.cpp \
+	third_party/icu/source/i18n/ucol.cpp \
+	third_party/icu/source/i18n/ucoleitr.cpp \
+	third_party/icu/source/i18n/ucol_elm.cpp \
+	third_party/icu/source/i18n/ucol_res.cpp \
+	third_party/icu/source/i18n/ucol_sit.cpp \
+	third_party/icu/source/i18n/ucol_tok.cpp \
+	third_party/icu/source/i18n/ucol_wgt.cpp \
+	third_party/icu/source/i18n/ucsdet.cpp \
+	third_party/icu/source/i18n/ucurr.cpp \
+	third_party/icu/source/i18n/udat.cpp \
+	third_party/icu/source/i18n/udateintervalformat.cpp \
+	third_party/icu/source/i18n/udatpg.cpp \
+	third_party/icu/source/i18n/ulocdata.c \
+	third_party/icu/source/i18n/umsg.cpp \
+	third_party/icu/source/i18n/unesctrn.cpp \
+	third_party/icu/source/i18n/uni2name.cpp \
+	third_party/icu/source/i18n/unum.cpp \
+	third_party/icu/source/i18n/unumsys.cpp \
+	third_party/icu/source/i18n/upluralrules.cpp \
+	third_party/icu/source/i18n/uregexc.cpp \
+	third_party/icu/source/i18n/uregex.cpp \
+	third_party/icu/source/i18n/uregion.cpp \
+	third_party/icu/source/i18n/usearch.cpp \
+	third_party/icu/source/i18n/uspoof_build.cpp \
+	third_party/icu/source/i18n/uspoof_conf.cpp \
+	third_party/icu/source/i18n/uspoof.cpp \
+	third_party/icu/source/i18n/uspoof_impl.cpp \
+	third_party/icu/source/i18n/uspoof_wsconf.cpp \
+	third_party/icu/source/i18n/utmscale.c \
+	third_party/icu/source/i18n/utrans.cpp \
+	third_party/icu/source/i18n/vtzone.cpp \
+	third_party/icu/source/i18n/vzone.cpp \
+	third_party/icu/source/i18n/windtfmt.cpp \
+	third_party/icu/source/i18n/winnmfmt.cpp \
+	third_party/icu/source/i18n/wintzimpl.cpp \
+	third_party/icu/source/i18n/zonemeta.cpp \
+	third_party/icu/source/i18n/zrule.cpp \
+	third_party/icu/source/i18n/ztrans.cpp
+
+
+# Flags passed to both C and C++ files.
+MY_CFLAGS_Debug := \
+	-fstack-protector \
+	--param=ssp-buffer-size=4 \
+	-fno-exceptions \
+	-fno-strict-aliasing \
+	-Wno-unused-parameter \
+	-Wno-missing-field-initializers \
+	-fvisibility=hidden \
+	-pipe \
+	-fPIC \
+	-Wno-unused-local-typedefs \
+	-Wno-deprecated-declarations \
+	-fno-builtin-sin \
+	-Wno-format \
+	-m64 \
+	-march=x86-64 \
+	-ffunction-sections \
+	-funwind-tables \
+	-g \
+	-fstack-protector \
+	-fno-short-enums \
+	-finline-limit=64 \
+	-Wa,--noexecstack \
+	-U_FORTIFY_SOURCE \
+	-Wno-extra \
+	-Wno-ignored-qualifiers \
+	-Wno-type-limits \
+	-Wno-unused-but-set-variable \
+	-Wno-address \
+	-Wno-format-security \
+	-Wno-return-type \
+	-Wno-sequence-point \
+	-Os \
+	-g \
+	-fdata-sections \
+	-ffunction-sections \
+	-fomit-frame-pointer \
+	-funwind-tables
+
+MY_DEFS_Debug := \
+	'-DU_USING_ICU_NAMESPACE=0' \
+	'-DHAVE_DLOPEN=0' \
+	'-DV8_DEPRECATION_WARNINGS' \
+	'-D_FILE_OFFSET_BITS=64' \
+	'-DNO_TCMALLOC' \
+	'-DDISABLE_NACL' \
+	'-DU_STATIC_IMPLEMENTATION' \
+	'-DCHROMIUM_BUILD' \
+	'-DUSE_LIBJPEG_TURBO=1' \
+	'-DENABLE_WEBRTC=1' \
+	'-DUSE_PROPRIETARY_CODECS' \
+	'-DENABLE_BROWSER_CDMS' \
+	'-DENABLE_CONFIGURATION_POLICY' \
+	'-DDISCARDABLE_MEMORY_ALWAYS_SUPPORTED_NATIVELY' \
+	'-DSYSTEM_NATIVELY_SIGNALS_MEMORY_PRESSURE' \
+	'-DENABLE_EGLIMAGE=1' \
+	'-DCLD_VERSION=1' \
+	'-DENABLE_PRINTING=1' \
+	'-DENABLE_MANAGED_USERS=1' \
+	'-DDATA_REDUCTION_FALLBACK_HOST="http://compress.googlezip.net:80/"' \
+	'-DDATA_REDUCTION_DEV_HOST="http://proxy-dev.googlezip.net:80/"' \
+	'-DSPDY_PROXY_AUTH_ORIGIN="https://proxy.googlezip.net:443/"' \
+	'-DDATA_REDUCTION_PROXY_PROBE_URL="http://check.googlezip.net/connect"' \
+	'-DDATA_REDUCTION_PROXY_WARMUP_URL="http://www.gstatic.com/generate_204"' \
+	'-DVIDEO_HOLE=1' \
+	'-DU_I18N_IMPLEMENTATION' \
+	'-DU_ENABLE_DYLOAD=0' \
+	'-DUSE_OPENSSL=1' \
+	'-DUSE_OPENSSL_CERTS=1' \
+	'-DANDROID' \
+	'-D__GNU_SOURCE=1' \
+	'-DUSE_STLPORT=1' \
+	'-D_STLP_USE_PTR_SPECIALIZATIONS=1' \
+	'-DCHROME_BUILD_ID=""' \
+	'-DDYNAMIC_ANNOTATIONS_ENABLED=1' \
+	'-DWTF_USE_DYNAMIC_ANNOTATIONS=1' \
+	'-D_DEBUG'
+
+
+# Include paths placed before CFLAGS/CPPFLAGS
+LOCAL_C_INCLUDES_Debug := \
+	$(LOCAL_PATH)/third_party/icu/source/common \
+	$(LOCAL_PATH)/third_party/icu/source/i18n \
+	$(gyp_shared_intermediate_dir) \
+	$(PWD)/frameworks/wilhelm/include \
+	$(PWD)/abi/cpp/include \
+	$(PWD)/bionic \
+	$(PWD)/external/stlport/stlport
+
+
+# Flags passed to only C++ (and not C) files.
+LOCAL_CPPFLAGS_Debug := \
+	-fno-rtti \
+	-fno-threadsafe-statics \
+	-fvisibility-inlines-hidden \
+	-frtti \
+	-Wno-deprecated \
+	-std=gnu++11 \
+	-Wno-narrowing \
+	-Wno-literal-suffix \
+	-Wno-non-virtual-dtor \
+	-Wno-sign-promo \
+	-Wno-non-virtual-dtor
+
+
+# Flags passed to both C and C++ files.
+MY_CFLAGS_Release := \
+	-fstack-protector \
+	--param=ssp-buffer-size=4 \
+	-fno-exceptions \
+	-fno-strict-aliasing \
+	-Wno-unused-parameter \
+	-Wno-missing-field-initializers \
+	-fvisibility=hidden \
+	-pipe \
+	-fPIC \
+	-Wno-unused-local-typedefs \
+	-Wno-deprecated-declarations \
+	-fno-builtin-sin \
+	-Wno-format \
+	-m64 \
+	-march=x86-64 \
+	-ffunction-sections \
+	-funwind-tables \
+	-g \
+	-fstack-protector \
+	-fno-short-enums \
+	-finline-limit=64 \
+	-Wa,--noexecstack \
+	-U_FORTIFY_SOURCE \
+	-Wno-extra \
+	-Wno-ignored-qualifiers \
+	-Wno-type-limits \
+	-Wno-unused-but-set-variable \
+	-Wno-address \
+	-Wno-format-security \
+	-Wno-return-type \
+	-Wno-sequence-point \
+	-Os \
+	-fno-ident \
+	-fdata-sections \
+	-ffunction-sections \
+	-fomit-frame-pointer \
+	-funwind-tables
+
+MY_DEFS_Release := \
+	'-DU_USING_ICU_NAMESPACE=0' \
+	'-DHAVE_DLOPEN=0' \
+	'-DV8_DEPRECATION_WARNINGS' \
+	'-D_FILE_OFFSET_BITS=64' \
+	'-DNO_TCMALLOC' \
+	'-DDISABLE_NACL' \
+	'-DU_STATIC_IMPLEMENTATION' \
+	'-DCHROMIUM_BUILD' \
+	'-DUSE_LIBJPEG_TURBO=1' \
+	'-DENABLE_WEBRTC=1' \
+	'-DUSE_PROPRIETARY_CODECS' \
+	'-DENABLE_BROWSER_CDMS' \
+	'-DENABLE_CONFIGURATION_POLICY' \
+	'-DDISCARDABLE_MEMORY_ALWAYS_SUPPORTED_NATIVELY' \
+	'-DSYSTEM_NATIVELY_SIGNALS_MEMORY_PRESSURE' \
+	'-DENABLE_EGLIMAGE=1' \
+	'-DCLD_VERSION=1' \
+	'-DENABLE_PRINTING=1' \
+	'-DENABLE_MANAGED_USERS=1' \
+	'-DDATA_REDUCTION_FALLBACK_HOST="http://compress.googlezip.net:80/"' \
+	'-DDATA_REDUCTION_DEV_HOST="http://proxy-dev.googlezip.net:80/"' \
+	'-DSPDY_PROXY_AUTH_ORIGIN="https://proxy.googlezip.net:443/"' \
+	'-DDATA_REDUCTION_PROXY_PROBE_URL="http://check.googlezip.net/connect"' \
+	'-DDATA_REDUCTION_PROXY_WARMUP_URL="http://www.gstatic.com/generate_204"' \
+	'-DVIDEO_HOLE=1' \
+	'-DU_I18N_IMPLEMENTATION' \
+	'-DU_ENABLE_DYLOAD=0' \
+	'-DUSE_OPENSSL=1' \
+	'-DUSE_OPENSSL_CERTS=1' \
+	'-DANDROID' \
+	'-D__GNU_SOURCE=1' \
+	'-DUSE_STLPORT=1' \
+	'-D_STLP_USE_PTR_SPECIALIZATIONS=1' \
+	'-DCHROME_BUILD_ID=""' \
+	'-DNDEBUG' \
+	'-DNVALGRIND' \
+	'-DDYNAMIC_ANNOTATIONS_ENABLED=0'
+
+
+# Include paths placed before CFLAGS/CPPFLAGS
+LOCAL_C_INCLUDES_Release := \
+	$(LOCAL_PATH)/third_party/icu/source/common \
+	$(LOCAL_PATH)/third_party/icu/source/i18n \
+	$(gyp_shared_intermediate_dir) \
+	$(PWD)/frameworks/wilhelm/include \
+	$(PWD)/abi/cpp/include \
+	$(PWD)/bionic \
+	$(PWD)/external/stlport/stlport
+
+
+# Flags passed to only C++ (and not C) files.
+LOCAL_CPPFLAGS_Release := \
+	-fno-rtti \
+	-fno-threadsafe-statics \
+	-fvisibility-inlines-hidden \
+	-frtti \
+	-Wno-deprecated \
+	-std=gnu++11 \
+	-Wno-narrowing \
+	-Wno-literal-suffix \
+	-Wno-non-virtual-dtor \
+	-Wno-sign-promo \
+	-Wno-non-virtual-dtor
+
+
+LOCAL_CFLAGS := $(MY_CFLAGS_$(GYP_CONFIGURATION)) $(MY_DEFS_$(GYP_CONFIGURATION))
+LOCAL_C_INCLUDES := $(GYP_COPIED_SOURCE_ORIGIN_DIRS) $(LOCAL_C_INCLUDES_$(GYP_CONFIGURATION))
+LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS_$(GYP_CONFIGURATION))
+LOCAL_ASFLAGS := $(LOCAL_CFLAGS)
 ### Rules for final target.
+
+LOCAL_LDFLAGS_Debug := \
+	-Wl,-z,now \
+	-Wl,-z,relro \
+	-Wl,--fatal-warnings \
+	-Wl,-z,noexecstack \
+	-fPIC \
+	-m64 \
+	-fuse-ld=gold \
+	-nostdlib \
+	-Wl,--no-undefined \
+	-Wl,--exclude-libs=ALL \
+	-Wl,--warn-shared-textrel \
+	-Wl,-O1 \
+	-Wl,--as-needed
+
+
+LOCAL_LDFLAGS_Release := \
+	-Wl,-z,now \
+	-Wl,-z,relro \
+	-Wl,--fatal-warnings \
+	-Wl,-z,noexecstack \
+	-fPIC \
+	-m64 \
+	-fuse-ld=gold \
+	-nostdlib \
+	-Wl,--no-undefined \
+	-Wl,--exclude-libs=ALL \
+	-Wl,-O1 \
+	-Wl,--as-needed \
+	-Wl,--gc-sections \
+	-Wl,--warn-shared-textrel
+
+
+LOCAL_LDFLAGS := $(LOCAL_LDFLAGS_$(GYP_CONFIGURATION))
+
+LOCAL_STATIC_LIBRARIES :=
+
+# Enable grouping to fix circular references
+LOCAL_GROUP_STATIC_LIBRARIES := true
+
+LOCAL_SHARED_LIBRARIES := \
+	libstlport \
+	libdl
+
 # Add target alias to "gyp_all_modules" target.
 .PHONY: gyp_all_modules
 gyp_all_modules: third_party_icu_icui18n_gyp
@@ -196,15 +457,4 @@ gyp_all_modules: third_party_icu_icui18n_gyp
 .PHONY: icui18n
 icui18n: third_party_icu_icui18n_gyp
 
-LOCAL_MODULE_PATH := $(PRODUCT_OUT)/gyp_stamp
-LOCAL_UNINSTALLABLE_MODULE := true
-LOCAL_2ND_ARCH_VAR_PREFIX := $(GYP_VAR_PREFIX)
-
-include $(BUILD_SYSTEM)/base_rules.mk
-
-$(LOCAL_BUILT_MODULE): $(LOCAL_ADDITIONAL_DEPENDENCIES)
-	$(hide) echo "Gyp timestamp: $@"
-	$(hide) mkdir -p $(dir $@)
-	$(hide) touch $@
-
-LOCAL_2ND_ARCH_VAR_PREFIX :=
+include $(BUILD_STATIC_LIBRARY)
