@@ -2,415 +2,203 @@
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_CLASS := STATIC_LIBRARIES
+LOCAL_MODULE_CLASS := GYP
 LOCAL_MODULE := third_party_icu_icuuc_gyp
-LOCAL_MODULE_SUFFIX := .a
+LOCAL_MODULE_STEM := icuuc
+LOCAL_MODULE_SUFFIX := .stamp
 LOCAL_MODULE_TARGET_ARCH := $(TARGET_$(GYP_VAR_PREFIX)ARCH)
 gyp_intermediate_dir := $(call local-intermediates-dir,,$(GYP_VAR_PREFIX))
 gyp_shared_intermediate_dir := $(call intermediates-dir-for,GYP,shared,,,$(GYP_VAR_PREFIX))
 
 # Make sure our deps are built first.
-GYP_TARGET_DEPENDENCIES :=
+GYP_TARGET_DEPENDENCIES := \
+	$(call intermediates-dir-for,GYP,third_party_icu_system_icu_gyp,,,$(GYP_VAR_PREFIX))/system_icu.stamp
 
-GYP_GENERATED_OUTPUTS :=
+### Rules for action "generate_icuuc_shim_headers":
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h: gyp_local_path := $(LOCAL_PATH)
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h: gyp_var_prefix := $(GYP_VAR_PREFIX)
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h: gyp_intermediate_dir := $(abspath $(gyp_intermediate_dir))
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h: gyp_shared_intermediate_dir := $(abspath $(gyp_shared_intermediate_dir))
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h: export PATH := $(subst $(ANDROID_BUILD_PATHS),,$(PATH))
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h: $(LOCAL_PATH)/tools/generate_shim_headers/generate_shim_headers.py $(GYP_TARGET_DEPENDENCIES)
+	@echo "Gyp action: Generating icuuc shim headers ($@)"
+	$(hide)cd $(gyp_local_path)/third_party/icu; mkdir -p $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode; python ../../tools/generate_shim_headers/generate_shim_headers.py --headers-root source/common --output-directory "$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target" unicode/appendable.h unicode/brkiter.h unicode/bytestream.h unicode/bytestriebuilder.h unicode/bytestrie.h unicode/caniter.h unicode/chariter.h unicode/dbbi.h unicode/docmain.h unicode/dtintrv.h unicode/enumset.h unicode/errorcode.h unicode/icudataver.h unicode/icuplug.h unicode/idna.h unicode/listformatter.h unicode/localpointer.h unicode/locid.h unicode/messagepattern.h unicode/normalizer2.h unicode/normlzr.h unicode/parseerr.h unicode/parsepos.h unicode/platform.h unicode/ptypes.h unicode/putil.h unicode/rbbi.h unicode/rep.h unicode/resbund.h unicode/schriter.h unicode/std_string.h unicode/strenum.h unicode/stringpiece.h unicode/stringtriebuilder.h unicode/symtable.h unicode/ubidi.h unicode/ubrk.h unicode/ucasemap.h unicode/ucat.h unicode/uchar.h unicode/ucharstriebuilder.h unicode/ucharstrie.h unicode/uchriter.h unicode/uclean.h unicode/ucnv_cb.h unicode/ucnv_err.h unicode/ucnv.h unicode/ucnvsel.h unicode/uconfig.h unicode/udata.h unicode/uenum.h unicode/uidna.h unicode/uiter.h unicode/uloc.h unicode/umachine.h unicode/umisc.h unicode/unifilt.h unicode/unifunct.h unicode/unimatch.h unicode/uniset.h unicode/unistr.h unicode/unorm2.h unicode/unorm.h unicode/uobject.h unicode/urename.h unicode/urep.h unicode/ures.h unicode/uscript.h unicode/uset.h unicode/usetiter.h unicode/ushape.h unicode/usprep.h unicode/ustring.h unicode/ustringtrie.h unicode/utext.h unicode/utf16.h unicode/utf32.h unicode/utf8.h unicode/utf.h unicode/utf_old.h unicode/utrace.h unicode/utypes.h unicode/uvernum.h unicode/uversion.h --generate
+
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/brkiter.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/bytestream.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/bytestriebuilder.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/bytestrie.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/caniter.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/chariter.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/dbbi.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/docmain.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/dtintrv.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/enumset.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/errorcode.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/icudataver.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/icuplug.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/idna.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/listformatter.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/localpointer.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/locid.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/messagepattern.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/normalizer2.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/normlzr.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/parseerr.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/parsepos.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/platform.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ptypes.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/putil.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/rbbi.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/rep.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/resbund.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/schriter.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/std_string.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/strenum.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/stringpiece.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/stringtriebuilder.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/symtable.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ubidi.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ubrk.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucasemap.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucat.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uchar.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucharstriebuilder.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucharstrie.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uchriter.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uclean.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucnv_cb.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucnv_err.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucnv.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucnvsel.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uconfig.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/udata.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uenum.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uidna.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uiter.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uloc.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/umachine.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/umisc.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unifilt.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unifunct.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unimatch.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uniset.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unistr.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unorm2.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unorm.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uobject.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/urename.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/urep.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ures.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uscript.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uset.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/usetiter.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ushape.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/usprep.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ustring.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ustringtrie.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utext.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf16.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf32.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf8.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf_old.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utrace.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utypes.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uvernum.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uversion.h: $(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h ;
+
+
+GYP_GENERATED_OUTPUTS := \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/appendable.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/brkiter.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/bytestream.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/bytestriebuilder.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/bytestrie.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/caniter.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/chariter.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/dbbi.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/docmain.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/dtintrv.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/enumset.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/errorcode.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/icudataver.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/icuplug.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/idna.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/listformatter.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/localpointer.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/locid.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/messagepattern.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/normalizer2.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/normlzr.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/parseerr.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/parsepos.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/platform.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ptypes.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/putil.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/rbbi.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/rep.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/resbund.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/schriter.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/std_string.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/strenum.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/stringpiece.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/stringtriebuilder.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/symtable.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ubidi.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ubrk.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucasemap.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucat.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uchar.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucharstriebuilder.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucharstrie.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uchriter.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uclean.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucnv_cb.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucnv_err.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucnv.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ucnvsel.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uconfig.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/udata.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uenum.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uidna.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uiter.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uloc.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/umachine.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/umisc.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unifilt.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unifunct.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unimatch.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uniset.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unistr.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unorm2.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/unorm.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uobject.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/urename.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/urep.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ures.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uscript.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uset.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/usetiter.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ushape.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/usprep.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ustring.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/ustringtrie.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utext.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf16.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf32.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf8.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utf_old.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utrace.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/utypes.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uvernum.h \
+	$(gyp_shared_intermediate_dir)/shim_headers/icuuc/target/third_party/icu/source/common/unicode/uversion.h
 
 # Make sure our deps and generated files are built first.
 LOCAL_ADDITIONAL_DEPENDENCIES := $(GYP_TARGET_DEPENDENCIES) $(GYP_GENERATED_OUTPUTS)
 
-LOCAL_GENERATED_SOURCES :=
-
-GYP_COPIED_SOURCE_ORIGIN_DIRS :=
-
-LOCAL_SRC_FILES := \
-	third_party/icu/source/common/appendable.cpp \
-	third_party/icu/source/common/bmpset.cpp \
-	third_party/icu/source/common/brkeng.cpp \
-	third_party/icu/source/common/brkiter.cpp \
-	third_party/icu/source/common/bytestream.cpp \
-	third_party/icu/source/common/bytestriebuilder.cpp \
-	third_party/icu/source/common/bytestrie.cpp \
-	third_party/icu/source/common/bytestrieiterator.cpp \
-	third_party/icu/source/common/caniter.cpp \
-	third_party/icu/source/common/chariter.cpp \
-	third_party/icu/source/common/charstr.cpp \
-	third_party/icu/source/common/cmemory.c \
-	third_party/icu/source/common/cstring.c \
-	third_party/icu/source/common/cwchar.c \
-	third_party/icu/source/common/dictbe.cpp \
-	third_party/icu/source/common/dictionarydata.cpp \
-	third_party/icu/source/common/dtintrv.cpp \
-	third_party/icu/source/common/errorcode.cpp \
-	third_party/icu/source/common/filterednormalizer2.cpp \
-	third_party/icu/source/common/icudataver.c \
-	third_party/icu/source/common/icuplug.c \
-	third_party/icu/source/common/listformatter.cpp \
-	third_party/icu/source/common/locavailable.cpp \
-	third_party/icu/source/common/locbased.cpp \
-	third_party/icu/source/common/locdispnames.cpp \
-	third_party/icu/source/common/locid.cpp \
-	third_party/icu/source/common/loclikely.cpp \
-	third_party/icu/source/common/locmap.c \
-	third_party/icu/source/common/locresdata.cpp \
-	third_party/icu/source/common/locutil.cpp \
-	third_party/icu/source/common/messagepattern.cpp \
-	third_party/icu/source/common/normalizer2.cpp \
-	third_party/icu/source/common/normalizer2impl.cpp \
-	third_party/icu/source/common/normlzr.cpp \
-	third_party/icu/source/common/parsepos.cpp \
-	third_party/icu/source/common/patternprops.cpp \
-	third_party/icu/source/common/propname.cpp \
-	third_party/icu/source/common/propsvec.c \
-	third_party/icu/source/common/punycode.cpp \
-	third_party/icu/source/common/putil.cpp \
-	third_party/icu/source/common/rbbi.cpp \
-	third_party/icu/source/common/rbbidata.cpp \
-	third_party/icu/source/common/rbbinode.cpp \
-	third_party/icu/source/common/rbbirb.cpp \
-	third_party/icu/source/common/rbbiscan.cpp \
-	third_party/icu/source/common/rbbisetb.cpp \
-	third_party/icu/source/common/rbbistbl.cpp \
-	third_party/icu/source/common/rbbitblb.cpp \
-	third_party/icu/source/common/resbund_cnv.cpp \
-	third_party/icu/source/common/resbund.cpp \
-	third_party/icu/source/common/ruleiter.cpp \
-	third_party/icu/source/common/schriter.cpp \
-	third_party/icu/source/common/serv.cpp \
-	third_party/icu/source/common/servlk.cpp \
-	third_party/icu/source/common/servlkf.cpp \
-	third_party/icu/source/common/servls.cpp \
-	third_party/icu/source/common/servnotf.cpp \
-	third_party/icu/source/common/servrbf.cpp \
-	third_party/icu/source/common/servslkf.cpp \
-	third_party/icu/source/common/stringpiece.cpp \
-	third_party/icu/source/common/stringtriebuilder.cpp \
-	third_party/icu/source/common/uarrsort.c \
-	third_party/icu/source/common/ubidi.c \
-	third_party/icu/source/common/ubidiln.c \
-	third_party/icu/source/common/ubidi_props.c \
-	third_party/icu/source/common/ubidiwrt.c \
-	third_party/icu/source/common/ubrk.cpp \
-	third_party/icu/source/common/ucase.cpp \
-	third_party/icu/source/common/ucasemap.cpp \
-	third_party/icu/source/common/ucasemap_titlecase_brkiter.cpp \
-	third_party/icu/source/common/ucat.c \
-	third_party/icu/source/common/uchar.c \
-	third_party/icu/source/common/ucharstriebuilder.cpp \
-	third_party/icu/source/common/ucharstrie.cpp \
-	third_party/icu/source/common/ucharstrieiterator.cpp \
-	third_party/icu/source/common/uchriter.cpp \
-	third_party/icu/source/common/ucln_cmn.c \
-	third_party/icu/source/common/ucmndata.c \
-	third_party/icu/source/common/ucnv2022.cpp \
-	third_party/icu/source/common/ucnv_bld.cpp \
-	third_party/icu/source/common/ucnvbocu.cpp \
-	third_party/icu/source/common/ucnv.c \
-	third_party/icu/source/common/ucnv_cb.c \
-	third_party/icu/source/common/ucnv_cnv.c \
-	third_party/icu/source/common/ucnv_ct.c \
-	third_party/icu/source/common/ucnvdisp.c \
-	third_party/icu/source/common/ucnv_err.c \
-	third_party/icu/source/common/ucnv_ext.cpp \
-	third_party/icu/source/common/ucnvhz.c \
-	third_party/icu/source/common/ucnv_io.cpp \
-	third_party/icu/source/common/ucnvisci.c \
-	third_party/icu/source/common/ucnvlat1.c \
-	third_party/icu/source/common/ucnv_lmb.c \
-	third_party/icu/source/common/ucnvmbcs.c \
-	third_party/icu/source/common/ucnvscsu.c \
-	third_party/icu/source/common/ucnvsel.cpp \
-	third_party/icu/source/common/ucnv_set.c \
-	third_party/icu/source/common/ucnv_u16.c \
-	third_party/icu/source/common/ucnv_u32.c \
-	third_party/icu/source/common/ucnv_u7.c \
-	third_party/icu/source/common/ucnv_u8.c \
-	third_party/icu/source/common/ucol_swp.cpp \
-	third_party/icu/source/common/udata.cpp \
-	third_party/icu/source/common/udatamem.c \
-	third_party/icu/source/common/udataswp.c \
-	third_party/icu/source/common/uenum.c \
-	third_party/icu/source/common/uhash.c \
-	third_party/icu/source/common/uhash_us.cpp \
-	third_party/icu/source/common/uidna.cpp \
-	third_party/icu/source/common/uinit.cpp \
-	third_party/icu/source/common/uinvchar.c \
-	third_party/icu/source/common/uiter.cpp \
-	third_party/icu/source/common/ulist.c \
-	third_party/icu/source/common/uloc.cpp \
-	third_party/icu/source/common/uloc_tag.c \
-	third_party/icu/source/common/umapfile.c \
-	third_party/icu/source/common/umath.c \
-	third_party/icu/source/common/umutex.cpp \
-	third_party/icu/source/common/unames.cpp \
-	third_party/icu/source/common/unifilt.cpp \
-	third_party/icu/source/common/unifunct.cpp \
-	third_party/icu/source/common/uniset_closure.cpp \
-	third_party/icu/source/common/uniset.cpp \
-	third_party/icu/source/common/uniset_props.cpp \
-	third_party/icu/source/common/unisetspan.cpp \
-	third_party/icu/source/common/unistr_case.cpp \
-	third_party/icu/source/common/unistr_case_locale.cpp \
-	third_party/icu/source/common/unistr_cnv.cpp \
-	third_party/icu/source/common/unistr.cpp \
-	third_party/icu/source/common/unistr_props.cpp \
-	third_party/icu/source/common/unistr_titlecase_brkiter.cpp \
-	third_party/icu/source/common/unormcmp.cpp \
-	third_party/icu/source/common/unorm.cpp \
-	third_party/icu/source/common/unorm_it.c \
-	third_party/icu/source/common/uobject.cpp \
-	third_party/icu/source/common/uprops.cpp \
-	third_party/icu/source/common/uresbund.cpp \
-	third_party/icu/source/common/ures_cnv.c \
-	third_party/icu/source/common/uresdata.c \
-	third_party/icu/source/common/usc_impl.c \
-	third_party/icu/source/common/uscript.c \
-	third_party/icu/source/common/uscript_props.cpp \
-	third_party/icu/source/common/uset.cpp \
-	third_party/icu/source/common/usetiter.cpp \
-	third_party/icu/source/common/uset_props.cpp \
-	third_party/icu/source/common/ushape.cpp \
-	third_party/icu/source/common/usprep.cpp \
-	third_party/icu/source/common/ustack.cpp \
-	third_party/icu/source/common/ustrcase.cpp \
-	third_party/icu/source/common/ustrcase_locale.cpp \
-	third_party/icu/source/common/ustr_cnv.c \
-	third_party/icu/source/common/ustrenum.cpp \
-	third_party/icu/source/common/ustrfmt.c \
-	third_party/icu/source/common/ustring.cpp \
-	third_party/icu/source/common/ustr_titlecase_brkiter.cpp \
-	third_party/icu/source/common/ustrtrns.cpp \
-	third_party/icu/source/common/ustr_wcs.cpp \
-	third_party/icu/source/common/utext.cpp \
-	third_party/icu/source/common/utf_impl.c \
-	third_party/icu/source/common/util.cpp \
-	third_party/icu/source/common/util_props.cpp \
-	third_party/icu/source/common/utrace.c \
-	third_party/icu/source/common/utrie2_builder.cpp \
-	third_party/icu/source/common/utrie2.cpp \
-	third_party/icu/source/common/utrie.cpp \
-	third_party/icu/source/common/uts46.cpp \
-	third_party/icu/source/common/utypes.c \
-	third_party/icu/source/common/uvector.cpp \
-	third_party/icu/source/common/uvectr32.cpp \
-	third_party/icu/source/common/uvectr64.cpp \
-	third_party/icu/source/common/wintz.c
-
-
-# Flags passed to both C and C++ files.
-MY_CFLAGS_Debug := \
-	--param=ssp-buffer-size=4 \
-	-fno-strict-aliasing \
-	-Wno-unused-parameter \
-	-Wno-missing-field-initializers \
-	-fvisibility=hidden \
-	-pipe \
-	-fPIC \
-	-Wno-unused-local-typedefs \
-	-Wno-deprecated-declarations \
-	-Wno-unused-function \
-	-Wno-format \
-	-ffunction-sections \
-	-funwind-tables \
-	-g \
-	-fno-short-enums \
-	-finline-limit=64 \
-	-Wa,--noexecstack \
-	-U_FORTIFY_SOURCE \
-	-Wno-extra \
-	-Wno-ignored-qualifiers \
-	-Wno-type-limits \
-	-Wno-unused-but-set-variable \
-	-Wno-address \
-	-Wno-format-security \
-	-Wno-return-type \
-	-Wno-sequence-point \
-	-Os \
-	-g \
-	-fdata-sections \
-	-ffunction-sections \
-	-funwind-tables
-
-MY_DEFS_Debug := \
-	'-DU_USING_ICU_NAMESPACE=0' \
-	'-DHAVE_DLOPEN=0' \
-	'-DV8_DEPRECATION_WARNINGS' \
-	'-D_FILE_OFFSET_BITS=64' \
-	'-DNO_TCMALLOC' \
-	'-DDISABLE_NACL' \
-	'-DU_STATIC_IMPLEMENTATION' \
-	'-DCHROMIUM_BUILD' \
-	'-DUSE_LIBJPEG_TURBO=1' \
-	'-DENABLE_WEBRTC=1' \
-	'-DUSE_PROPRIETARY_CODECS' \
-	'-DENABLE_BROWSER_CDMS' \
-	'-DENABLE_CONFIGURATION_POLICY' \
-	'-DDISCARDABLE_MEMORY_ALWAYS_SUPPORTED_NATIVELY' \
-	'-DSYSTEM_NATIVELY_SIGNALS_MEMORY_PRESSURE' \
-	'-DENABLE_EGLIMAGE=1' \
-	'-DCLD_VERSION=1' \
-	'-DENABLE_PRINTING=1' \
-	'-DENABLE_MANAGED_USERS=1' \
-	'-DDATA_REDUCTION_FALLBACK_HOST="http://compress.googlezip.net:80/"' \
-	'-DDATA_REDUCTION_DEV_HOST="https://proxy-dev.googlezip.net:443/"' \
-	'-DDATA_REDUCTION_DEV_FALLBACK_HOST="http://proxy-dev.googlezip.net:80/"' \
-	'-DSPDY_PROXY_AUTH_ORIGIN="https://proxy.googlezip.net:443/"' \
-	'-DDATA_REDUCTION_PROXY_PROBE_URL="http://check.googlezip.net/connect"' \
-	'-DDATA_REDUCTION_PROXY_WARMUP_URL="http://www.gstatic.com/generate_204"' \
-	'-DVIDEO_HOLE=1' \
-	'-DENABLE_LOAD_COMPLETION_HACKS=1' \
-	'-DU_COMMON_IMPLEMENTATION' \
-	'-DU_ENABLE_DYLOAD=0' \
-	'-DUSE_OPENSSL=1' \
-	'-DUSE_OPENSSL_CERTS=1' \
-	'-DANDROID' \
-	'-D__GNU_SOURCE=1' \
-	'-DUSE_STLPORT=1' \
-	'-D_STLP_USE_PTR_SPECIALIZATIONS=1' \
-	'-DCHROME_BUILD_ID=""' \
-	'-DDYNAMIC_ANNOTATIONS_ENABLED=1' \
-	'-DWTF_USE_DYNAMIC_ANNOTATIONS=1' \
-	'-D_DEBUG'
-
-
-# Include paths placed before CFLAGS/CPPFLAGS
-LOCAL_C_INCLUDES_Debug := \
-	$(LOCAL_PATH)/third_party/icu/source/common \
-	$(LOCAL_PATH)/third_party/icu/source/i18n \
-	$(gyp_shared_intermediate_dir) \
-	$(PWD)/frameworks/wilhelm/include \
-	$(PWD)/abi/cpp/include \
-	$(PWD)/bionic \
-	$(PWD)/external/stlport/stlport
-
-
-# Flags passed to only C++ (and not C) files.
-LOCAL_CPPFLAGS_Debug := \
-	-fno-exceptions \
-	-fno-rtti \
-	-fno-threadsafe-statics \
-	-fvisibility-inlines-hidden \
-	-frtti \
-	-Wno-deprecated \
-	-std=gnu++11 \
-	-Wno-narrowing \
-	-Wno-literal-suffix \
-	-Wno-non-virtual-dtor \
-	-Wno-sign-promo \
-	-Wno-non-virtual-dtor
-
-
-# Flags passed to both C and C++ files.
-MY_CFLAGS_Release := \
-	--param=ssp-buffer-size=4 \
-	-fno-strict-aliasing \
-	-Wno-unused-parameter \
-	-Wno-missing-field-initializers \
-	-fvisibility=hidden \
-	-pipe \
-	-fPIC \
-	-Wno-unused-local-typedefs \
-	-Wno-deprecated-declarations \
-	-Wno-unused-function \
-	-Wno-format \
-	-ffunction-sections \
-	-funwind-tables \
-	-g \
-	-fno-short-enums \
-	-finline-limit=64 \
-	-Wa,--noexecstack \
-	-U_FORTIFY_SOURCE \
-	-Wno-extra \
-	-Wno-ignored-qualifiers \
-	-Wno-type-limits \
-	-Wno-unused-but-set-variable \
-	-Wno-address \
-	-Wno-format-security \
-	-Wno-return-type \
-	-Wno-sequence-point \
-	-Os \
-	-fno-ident \
-	-fdata-sections \
-	-ffunction-sections \
-	-funwind-tables
-
-MY_DEFS_Release := \
-	'-DU_USING_ICU_NAMESPACE=0' \
-	'-DHAVE_DLOPEN=0' \
-	'-DV8_DEPRECATION_WARNINGS' \
-	'-D_FILE_OFFSET_BITS=64' \
-	'-DNO_TCMALLOC' \
-	'-DDISABLE_NACL' \
-	'-DU_STATIC_IMPLEMENTATION' \
-	'-DCHROMIUM_BUILD' \
-	'-DUSE_LIBJPEG_TURBO=1' \
-	'-DENABLE_WEBRTC=1' \
-	'-DUSE_PROPRIETARY_CODECS' \
-	'-DENABLE_BROWSER_CDMS' \
-	'-DENABLE_CONFIGURATION_POLICY' \
-	'-DDISCARDABLE_MEMORY_ALWAYS_SUPPORTED_NATIVELY' \
-	'-DSYSTEM_NATIVELY_SIGNALS_MEMORY_PRESSURE' \
-	'-DENABLE_EGLIMAGE=1' \
-	'-DCLD_VERSION=1' \
-	'-DENABLE_PRINTING=1' \
-	'-DENABLE_MANAGED_USERS=1' \
-	'-DDATA_REDUCTION_FALLBACK_HOST="http://compress.googlezip.net:80/"' \
-	'-DDATA_REDUCTION_DEV_HOST="https://proxy-dev.googlezip.net:443/"' \
-	'-DDATA_REDUCTION_DEV_FALLBACK_HOST="http://proxy-dev.googlezip.net:80/"' \
-	'-DSPDY_PROXY_AUTH_ORIGIN="https://proxy.googlezip.net:443/"' \
-	'-DDATA_REDUCTION_PROXY_PROBE_URL="http://check.googlezip.net/connect"' \
-	'-DDATA_REDUCTION_PROXY_WARMUP_URL="http://www.gstatic.com/generate_204"' \
-	'-DVIDEO_HOLE=1' \
-	'-DENABLE_LOAD_COMPLETION_HACKS=1' \
-	'-DU_COMMON_IMPLEMENTATION' \
-	'-DU_ENABLE_DYLOAD=0' \
-	'-DUSE_OPENSSL=1' \
-	'-DUSE_OPENSSL_CERTS=1' \
-	'-DANDROID' \
-	'-D__GNU_SOURCE=1' \
-	'-DUSE_STLPORT=1' \
-	'-D_STLP_USE_PTR_SPECIALIZATIONS=1' \
-	'-DCHROME_BUILD_ID=""' \
-	'-DNDEBUG' \
-	'-DNVALGRIND' \
-	'-DDYNAMIC_ANNOTATIONS_ENABLED=0'
-
-
-# Include paths placed before CFLAGS/CPPFLAGS
-LOCAL_C_INCLUDES_Release := \
-	$(LOCAL_PATH)/third_party/icu/source/common \
-	$(LOCAL_PATH)/third_party/icu/source/i18n \
-	$(gyp_shared_intermediate_dir) \
-	$(PWD)/frameworks/wilhelm/include \
-	$(PWD)/abi/cpp/include \
-	$(PWD)/bionic \
-	$(PWD)/external/stlport/stlport
-
-
-# Flags passed to only C++ (and not C) files.
-LOCAL_CPPFLAGS_Release := \
-	-fno-exceptions \
-	-fno-rtti \
-	-fno-threadsafe-statics \
-	-fvisibility-inlines-hidden \
-	-frtti \
-	-Wno-deprecated \
-	-std=gnu++11 \
-	-Wno-narrowing \
-	-Wno-literal-suffix \
-	-Wno-non-virtual-dtor \
-	-Wno-sign-promo \
-	-Wno-non-virtual-dtor
-
-
-LOCAL_CFLAGS := $(MY_CFLAGS_$(GYP_CONFIGURATION)) $(MY_DEFS_$(GYP_CONFIGURATION))
-LOCAL_C_INCLUDES := $(GYP_COPIED_SOURCE_ORIGIN_DIRS) $(LOCAL_C_INCLUDES_$(GYP_CONFIGURATION))
-LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS_$(GYP_CONFIGURATION))
-LOCAL_ASFLAGS := $(LOCAL_CFLAGS)
 ### Rules for final target.
-
-LOCAL_SHARED_LIBRARIES := \
-	libstlport \
-	libdl
-
 # Add target alias to "gyp_all_modules" target.
 .PHONY: gyp_all_modules
 gyp_all_modules: third_party_icu_icuuc_gyp
@@ -419,4 +207,15 @@ gyp_all_modules: third_party_icu_icuuc_gyp
 .PHONY: icuuc
 icuuc: third_party_icu_icuuc_gyp
 
-include $(BUILD_STATIC_LIBRARY)
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/gyp_stamp
+LOCAL_UNINSTALLABLE_MODULE := true
+LOCAL_2ND_ARCH_VAR_PREFIX := $(GYP_VAR_PREFIX)
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+$(LOCAL_BUILT_MODULE): $(LOCAL_ADDITIONAL_DEPENDENCIES)
+	$(hide) echo "Gyp timestamp: $@"
+	$(hide) mkdir -p $(dir $@)
+	$(hide) touch $@
+
+LOCAL_2ND_ARCH_VAR_PREFIX :=
