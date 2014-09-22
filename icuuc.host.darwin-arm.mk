@@ -224,6 +224,7 @@ MY_CFLAGS_Debug := \
 	-Wno-switch \
 	-Os \
 	-g \
+	-gdwarf-4 \
 	-fdata-sections \
 	-ffunction-sections \
 	-fomit-frame-pointer \
