@@ -210,6 +210,7 @@ MY_CFLAGS_Debug := \
 	-Wstring-conversion \
 	-Wno-c++11-narrowing \
 	-Wno-deprecated-register \
+	-Wno-unused-local-typedef \
 	-Wno-deprecated-declarations \
 	-Wno-logical-op-parentheses \
 	-Wno-tautological-compare \
@@ -300,6 +301,7 @@ MY_CFLAGS_Release := \
 	-Wstring-conversion \
 	-Wno-c++11-narrowing \
 	-Wno-deprecated-register \
+	-Wno-unused-local-typedef \
 	-Wno-deprecated-declarations \
 	-Wno-logical-op-parentheses \
 	-Wno-tautological-compare \
