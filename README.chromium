@@ -69,8 +69,11 @@ This directory contains the source code of ICU 52.1 for C/C++
 
 
    - android/brkitr.patch (to be applied for Android build only) :
-       Reverts some changes about Chinese/Japanese segmentation rules in
-       patches/brkitr.patch to reduce binary size for Android.
+       Do not use the C+J dictionary for Chinese/Japanese segmentation
+       to reduce the data size. Adjust word.txt and a few other files.
+
+   - source/data/brkitr/word_ja.txt (used only on Android)
+       Added for Japanese-specific word-breaking without the C+J dictionary.
 
 4. Converter changes :
 
@@ -83,14 +86,13 @@ This directory contains the source code of ICU 52.1 for C/C++
   - Add three new tables per WHATWG encoding standards for EUC-JP,
     Shift_JIS and CP866.
     They're generated with scripts/{eucjp, sjis, ibm866}_gen.sh.
-  - Add three 'fake' tables for ISO-2022-CN(-Ext) : noop-*.ucm.
 
   - uconv.patch
-    a. ucnv2022 uses 3 fake tables for ISO-2022-CN(-Ext) instead of two
-       huge tables.
-    b. ISO-2022-JP-[1-4] is dropped.
-    c. SCSU, BOCU, ISCII, UTF-7 conversion is diabled leading to
-       the 47kB reduction in the code size.
+    a. ISO-2022-JP-[1-4] is dropped.
+    b. SCSU, BOCU, ISCII, UTF-7, LMB, ibm42*, ISO-2022-{KR,CN*} and HZ-GB  :
+       converters and detectors are dropped leading to the ~100kB reduction
+       in the code size.
+
 
 5. Locale changes
   - patches/locale1.patch :
