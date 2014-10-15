@@ -199,6 +199,9 @@ GYP_GENERATED_OUTPUTS := \
 LOCAL_ADDITIONAL_DEPENDENCIES := $(GYP_TARGET_DEPENDENCIES) $(GYP_GENERATED_OUTPUTS)
 
 ### Rules for final target.
+### Set directly by aosp_build_settings.
+LOCAL_CLANG := false
+
 # Add target alias to "gyp_all_modules" target.
 .PHONY: gyp_all_modules
 gyp_all_modules: third_party_icu_icuuc_gyp
