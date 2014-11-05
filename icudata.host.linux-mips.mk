@@ -193,6 +193,7 @@ LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS_$(GYP_CONFIGURATION))
 LOCAL_ASFLAGS := $(LOCAL_CFLAGS)
 ### Rules for final target.
 ### Set directly by aosp_build_settings.
+LOCAL_CXX_STL := libstdc++
 LOCAL_CLANG := true
 
 # Add target alias to "gyp_all_modules" target.
