@@ -3,11 +3,11 @@
 include $(CLEAR_VARS)
 
 LOCAL_MODULE_CLASS := STATIC_LIBRARIES
-LOCAL_MODULE := third_party_icu_icudata_gyp
+LOCAL_MODULE := third_party_icu_icudata_$(TARGET_$(GYP_VAR_PREFIX)ARCH)_host_gyp
 LOCAL_MODULE_SUFFIX := .a
-LOCAL_MODULE_TARGET_ARCH := $(TARGET_$(GYP_VAR_PREFIX)ARCH)
-LOCAL_SDK_VERSION := 21
-gyp_intermediate_dir := $(call local-intermediates-dir,,$(GYP_VAR_PREFIX))
+LOCAL_IS_HOST_MODULE := true
+LOCAL_MULTILIB := $(GYP_HOST_MULTILIB)
+gyp_intermediate_dir := $(call local-intermediates-dir,,$(GYP_HOST_VAR_PREFIX))
 gyp_shared_intermediate_dir := $(call intermediates-dir-for,GYP,shared,,,$(GYP_VAR_PREFIX))
 
 # Make sure our deps are built first.
@@ -23,45 +23,30 @@ LOCAL_GENERATED_SOURCES :=
 GYP_COPIED_SOURCE_ORIGIN_DIRS :=
 
 LOCAL_SRC_FILES := \
-	third_party/icu/android/icudtl_dat.S
+	third_party/icu/mac/icudtl_dat.S
 
 
 # Flags passed to both C and C++ files.
 MY_CFLAGS_Debug := \
 	-fstack-protector \
 	--param=ssp-buffer-size=4 \
+	 \
+	-pthread \
 	-fno-strict-aliasing \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
 	-fvisibility=hidden \
 	-pipe \
 	-fPIC \
-	-Wno-unused-local-typedefs \
 	-Wno-format \
-	-fno-tree-sra \
-	-fno-caller-saves \
-	-Wno-psabi \
-	-fno-partial-inlining \
-	-fno-early-inlining \
-	-fno-tree-copy-prop \
-	-fno-tree-loop-optimize \
-	-fno-move-loop-invariants \
-	-ffunction-sections \
-	-funwind-tables \
-	-g \
-	-fstack-protector \
-	-fno-short-enums \
-	-finline-limit=64 \
-	-Wa,--noexecstack \
-	-U_FORTIFY_SOURCE \
-	-Wno-extra \
-	-Wno-ignored-qualifiers \
-	-Wno-type-limits \
-	-Wno-unused-but-set-variable \
-	-Wno-address \
-	-Wno-format-security \
-	-Wno-return-type \
-	-Wno-sequence-point \
+	-Wheader-hygiene \
+	-Wno-char-subscripts \
+	-Wno-unneeded-internal-declaration \
+	-Wno-covered-switch-default \
+	-Wstring-conversion \
+	-Wno-c++11-narrowing \
+	-Wno-deprecated-register \
+	-Wno-unused-local-typedef \
 	-Os \
 	-g \
 	-gdwarf-4 \
@@ -99,11 +84,6 @@ MY_DEFS_Debug := \
 	'-DUSE_LIBPCI=1' \
 	'-DUSE_OPENSSL=1' \
 	'-DUSE_OPENSSL_CERTS=1' \
-	'-DANDROID' \
-	'-D__GNU_SOURCE=1' \
-	'-DUSE_STLPORT=1' \
-	'-D_STLP_USE_PTR_SPECIALIZATIONS=1' \
-	'-DCHROME_BUILD_ID=""' \
 	'-DDYNAMIC_ANNOTATIONS_ENABLED=1' \
 	'-DWTF_USE_DYNAMIC_ANNOTATIONS=1' \
 	'-D_DEBUG'
@@ -123,51 +103,30 @@ LOCAL_CPPFLAGS_Debug := \
 	-fno-threadsafe-statics \
 	-fvisibility-inlines-hidden \
 	-Wno-deprecated \
-	-Wno-abi \
-	-std=gnu++11 \
-	-Wno-narrowing \
-	-Wno-literal-suffix \
-	-Wno-non-virtual-dtor \
-	-Wno-sign-promo \
-	-Wno-non-virtual-dtor
+	-std=gnu++11
 
 
 # Flags passed to both C and C++ files.
 MY_CFLAGS_Release := \
 	-fstack-protector \
 	--param=ssp-buffer-size=4 \
+	 \
+	-pthread \
 	-fno-strict-aliasing \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
 	-fvisibility=hidden \
 	-pipe \
 	-fPIC \
-	-Wno-unused-local-typedefs \
 	-Wno-format \
-	-fno-tree-sra \
-	-fno-caller-saves \
-	-Wno-psabi \
-	-fno-partial-inlining \
-	-fno-early-inlining \
-	-fno-tree-copy-prop \
-	-fno-tree-loop-optimize \
-	-fno-move-loop-invariants \
-	-ffunction-sections \
-	-funwind-tables \
-	-g \
-	-fstack-protector \
-	-fno-short-enums \
-	-finline-limit=64 \
-	-Wa,--noexecstack \
-	-U_FORTIFY_SOURCE \
-	-Wno-extra \
-	-Wno-ignored-qualifiers \
-	-Wno-type-limits \
-	-Wno-unused-but-set-variable \
-	-Wno-address \
-	-Wno-format-security \
-	-Wno-return-type \
-	-Wno-sequence-point \
+	-Wheader-hygiene \
+	-Wno-char-subscripts \
+	-Wno-unneeded-internal-declaration \
+	-Wno-covered-switch-default \
+	-Wstring-conversion \
+	-Wno-c++11-narrowing \
+	-Wno-deprecated-register \
+	-Wno-unused-local-typedef \
 	-Os \
 	-fno-ident \
 	-fdata-sections \
@@ -204,11 +163,6 @@ MY_DEFS_Release := \
 	'-DUSE_LIBPCI=1' \
 	'-DUSE_OPENSSL=1' \
 	'-DUSE_OPENSSL_CERTS=1' \
-	'-DANDROID' \
-	'-D__GNU_SOURCE=1' \
-	'-DUSE_STLPORT=1' \
-	'-D_STLP_USE_PTR_SPECIALIZATIONS=1' \
-	'-DCHROME_BUILD_ID=""' \
 	'-DNDEBUG' \
 	'-DNVALGRIND' \
 	'-DDYNAMIC_ANNOTATIONS_ENABLED=0'
@@ -228,30 +182,26 @@ LOCAL_CPPFLAGS_Release := \
 	-fno-threadsafe-statics \
 	-fvisibility-inlines-hidden \
 	-Wno-deprecated \
-	-Wno-abi \
-	-std=gnu++11 \
-	-Wno-narrowing \
-	-Wno-literal-suffix \
-	-Wno-non-virtual-dtor \
-	-Wno-sign-promo \
-	-Wno-non-virtual-dtor
+	-std=gnu++11
 
 
 LOCAL_CFLAGS := $(MY_CFLAGS_$(GYP_CONFIGURATION)) $(MY_DEFS_$(GYP_CONFIGURATION))
+# Undefine ANDROID for host modules
+LOCAL_CFLAGS += -UANDROID
 LOCAL_C_INCLUDES := $(GYP_COPIED_SOURCE_ORIGIN_DIRS) $(LOCAL_C_INCLUDES_$(GYP_CONFIGURATION))
 LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS_$(GYP_CONFIGURATION))
 LOCAL_ASFLAGS := $(LOCAL_CFLAGS)
 ### Rules for final target.
 ### Set directly by aosp_build_settings.
-LOCAL_CLANG := false
-LOCAL_NDK_STL_VARIANT := stlport_static
+LOCAL_CXX_STL := libstdc++
+LOCAL_CLANG := true
 
 # Add target alias to "gyp_all_modules" target.
 .PHONY: gyp_all_modules
-gyp_all_modules: third_party_icu_icudata_gyp
+gyp_all_modules: third_party_icu_icudata_$(TARGET_$(GYP_VAR_PREFIX)ARCH)_host_gyp
 
 # Alias gyp target name.
 .PHONY: icudata
-icudata: third_party_icu_icudata_gyp
+icudata: third_party_icu_icudata_$(TARGET_$(GYP_VAR_PREFIX)ARCH)_host_gyp
 
-include $(BUILD_STATIC_LIBRARY)
+include $(BUILD_HOST_STATIC_LIBRARY)
